@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BigContractRecord",
+  "type": "object",
+  "required": ["recipient_name", "potential_value_usd", "status", "as_of", "source_url"],
+  "properties": {
+    "award_id": { "type": "string", "description": "PIID or generated unique award ID" },
+    "recipient_name": { "type": "string" },
+    "uei": { "type": "string" },
+    "funding_agency": { "type": "string" },
+    "awarding_agency": { "type": "string" },
+    "description": { "type": "string" },
+    "potential_value_usd": { "type": "number" },
+    "obligated_usd": { "type": ["number", "null"] },
+    "award_date": { "type": ["string", "null"], "format": "date" },
+    "pop_end": { "type": ["string", "null"], "format": "date" },
+    "status": {
+      "type": "string",
+      "enum": ["active", "closed", "modification", "option_exercised", "protested", "recompete", "presolicitation", "unknown"]
+    },
+    "recipient_location": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "place_of_performance": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "naics": { "type": "string" },
+    "psc": { "type": "string" },
+    "set_aside": { "type": "string" },
+    "source_url": { "type": "string" },
+    "as_of": { "type": "string", "format": "date" },
+    "notes": { "type": "string" }
+  }
+}
